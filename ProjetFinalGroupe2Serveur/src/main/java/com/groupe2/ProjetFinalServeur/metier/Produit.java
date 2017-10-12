@@ -4,6 +4,7 @@ public class Produit {
 	
 	private int idProduit;
 	private String nomProduit;
+	private double prixProduit;
 	
 
 }
