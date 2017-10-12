@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="type_paiement")
 @DiscriminatorValue("moyenPaiement")
-public class MoyenDePaiement {
+public class MoyenDePaiement{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
