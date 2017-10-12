@@ -1,13 +1,28 @@
 package com.groupe2.ProjetFinalServeur.metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Entity
+@Component
+@Scope(value="prototype")
 public class Administrateur {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idAdmin;
 	private String nomAdmin;
 	private String prenomAdmin;
 	private String loginAdmin;
 	private String passwordAdmin;
 	private String emailAdmin;
+	
+	
 	public int getIdAdmin() {
 		return idAdmin;
 	}
