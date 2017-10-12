@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Built-By: aconsulting
-Build-Jdk: 1.8.0_66
+Built-By: Clemence
+Build-Jdk: 1.8.0_144
 Created-By: Maven Integration for Eclipse
 
