@@ -66,6 +66,5 @@ $RECYCLE.BIN/
 .project
 .settings
 .metadata
-
-# ignore tout ce qui est sous le répertoire target
-*/target/**
+pom.properties
+MANIFEST.MF
