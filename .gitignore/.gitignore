@@ -66,8 +66,6 @@ $RECYCLE.BIN/
 .project
 .settings
 .metadata
-<<<<<<< HEAD
 
-
-=======
->>>>>>> branch 'master' of https://github.com/Clemy507/ProjetArchitecture.git
+# ignore tout ce qui est sous le répertoire target
+*/target/**
