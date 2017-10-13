@@ -1,10 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="static/bootstrap/bootstrap.min.css">
+<link rel="stylesheet"  type="text/css"  href="static/css/style.css">
+
 </head>
-<body>
+<body ng-app="myApp">
+
+		<div class="container">
+		  <h2>Administrateur</h2>
+		  <p><strong>MENU</strong> 
+		  </p><div class="panel-group" id="accordion">
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" id="sousTitre" aria-expanded="false" class="collapsed">Gestion des Produits</a>
+		        </h4>
+		      </div>
+		      <div id="collapse1" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+		        <div class="panel-body">
+		        	<div>
+		        			<form name="monform" ng-controller="createProduit">
+		        			
+							   	Nom: <br><input name="nomProduit" ng-model="nomProduit" required="required" type="text">
+							   	<span ng-show="monform.nomProduit.$touched &amp;&amp; monform.nomProduit.$invalid">Champs invalide</span><br>
+							   	
+							    Prix: <br><input name="prixProduit" ng-model="prixProduit" required="required" type="number">
+							    <span ng-show="monform.prixProduit.$touched &amp;&amp; monform.prixProduit.$invalid">Champs invalide</span><br>
+							    
+								Quantité: <br><input name="stockProduit" ng-model="stockProduit" required="required" type="number">
+								<span ng-show="monform.stockProduit.$touched &amp;&amp; monform.stockProduit.$invalid">Champs invalide</span><br> 
+								
+								 <button ng-click="ajouter()">Envoyer</button> <!-- function envoyer info -->
+							
+							 <br>
+		
+				  			<table class="table table-striped" ng-controller="findAllProduit">
+							    <thead>
+							      <tr>
+							        <th>Numéro :</th>
+							        <th>Nom  :</th>
+							        <th>Prix  :</th>
+							        <th>Quantité :</th>
+							        <th>Description :</th>
+							      </tr>
+							    </thead>
+							     <tbody>
+								   <tr ng-repeat="user in updateProduit" ng-repeat="user in deleteProduit">
+								   
+								    <td>{{ p.idProduit }}</td>
+								    <td>{{p.nomProduit }}</td>
+								    <td>{{ p.prixProduit }}</td>
+								    <td>{{ p.stockProduit }}</td>
+								    <td>{{ p.description }}</td>
+								     <td>
+								      <button class="w3-btn w3-ripple" ng-click="modifier(produit.id)">&#9998;Edit</button>
+								      <button class="w3-btn w3-ripple" ng-click="supprimer(produit.id)">&#10006;</button>
+								      	
+								    </td>
+								  </tr>
+								 </tbody><tbody>
+							</tbody></table>
+						 </form>
+					</div><br><br>
+		        
+		        
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="sousTitre" class="collapsed" aria-expanded="false">Gestion des clients</a>
+		        </h4>
+		      </div>
+		      <div id="collapse2" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+		        <div class="panel-body">
+		        			        	<div>
+		        			<form name="monform" ng-controller="createClient">
+		        				<hidden name="idClient" type="number" ng-model="idClient"></hidden>
+							    <br>
+		        				
+							   	Nom: <br><input name="nomClient" ng-model="nomClient" required="required" type="text">
+							   	<span ng-show="monform.nomClient.$touched &amp;&amp; monform.nomClient.$invalid">Champs invalide</span><br>
+							   	
+							   	Prenom: <br><input name="prenomClient" ng-model="prenomClient" required="required" type="text">
+							   	<span ng-show="monform.prenomClient.$touched &amp;&amp; monform.prenomClient.$invalid">Champs invalide</span><br>
+							   	
+							    Telephone: <br><input name="telClient" ng-model="telClient" required="required" type="number">
+							    <span ng-show="monform.telClient.$touched &amp;&amp; monform.telClient.$invalid">Champs invalide</span><br>
+							    
+							    Login: <br><input name="loginClient" ng-model="loginClient" required="required" type="text">
+							   	<span ng-show="monform.loginClient.$touched &amp;&amp; monform.loginClient.$invalid">Champs invalide</span><br>
+							    
+							     Password: <br><input name="passwordClient" ng-model="passwordClient" placeholder="Password" required="required" type="password">
+							    <span ng-show="monform.passwordClient.$touched &amp;&amp; monform.passwordClient.$invalid">Champs invalide</span><br>
+							    
+								Email: <br><input name="emailClient" ng-model="emailClient" required="required" type="email">
+								<span ng-show="monform.emailClient.$touched &amp;&amp; monform.emailClient.$invalid">Champs invalide</span><br><br>  
+								
+								 <button ng-click="ajouter()">Envoyer</button> <!-- function envoyer info --> <br>
+							 </form></div><br><br>
+							
+		
+						  			<table class="table table-striped" ng-controller="findAllClient">
+									    <thead>
+									      <tr>
+									        <th>Nom :</th>
+									        <th>Prenom  :</th>
+									        <th>Telephone :</th>
+									        <th>Email :</th>
+									      </tr>
+									    </thead>
+									     <tbody>
+									    
+										   <tr ng-repeat="user in updateClient" ng-repeat="user in deleteClient">
+										    <td>{{p.nomClient }}</td>
+										    <td>{{ p.prenomClient }}</td>
+										    <td>{{ p.telClient }}</td>
+										    <td>{{ p.emailClient }}</td>
+										     <td>
+										      <button class="w3-btn w3-ripple" ng-click="modifier(client.id)">&#9998;Edit</button>
+										      <button class="w3-btn w3-ripple" ng-click="supprimer(client.id)">&#10006;</button>
+										    </td>
+										  </tr>
+										 </tbody>
+									</table>
+					
+					
+					
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" id="sousTitre" class="collapsed" aria-expanded="false">Gestion des commandes</a>
+		        </h4>
+		      </div>
+		      <div id="collapse3" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+		        <div class="panel-body">
+		        
+		       			<p> Une case pour rajouter des options à l'administrateur</p>
+		        
+		        
+		        </div>
+		      </div>
+		    </div>
+		  </div> 
+		</div>
+		
+
+	<script type="text/javascript" src="static/angular/angular.min.js"></script>
+	<script type="text/javascript" src="static/angular/angular-route.js"></script>
+	<script type="text/javascript" src="static/js/app.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -1,1 +1,18 @@
 @charset "ISO-8859-1";
+
+.container{
+	background-color: #caca00;
+	
+}
+
+#sousTitre{
+	color: #008040;
+	font-weight: 700;
+	font-style: italic;
+}
+
+h2{
+	color: #008040;
+	font-weight: 800;
+	font-style: italic;
+}
